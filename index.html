@@ -1,21 +1,66 @@
 <!DOCTYPE html> 
 <html lang="en">
-
-<head>
-	<title>FQC HVN</title>
-
 <meta charset="UTF-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <link rel="stylesheet" href="https://www.w3schools"> -->
 
+<head>
+	<title>FQC HVN</title>
+
+
 <style>
 body {
 	font-family: Georgia, serif;
+	margin: 22px;
+}
+/* style the top navigation bar */
+.navbar {
+	overflow: hidden;
+	background-color:#333;
+}
+/* style the navigation bar links */
+.navbar a {
+	float: left; /* make sure the links stay side by side */
+	display: block; /* change the display to block for responsive reasons*/
+	color: #fafae6;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none; /*remove underline*/
+}
+/*right-aligned link*/
+.navbar a.right {
+	float: right;
+}
+.navbar a:hover{
+	background-color: #fae;
+	color:#fafae6;
+}
+
+/* Style the header */
+.header {
+	padding: 80px;
+	text-align: center;
+	background: #BCBCF2;
+	color: #E6E6FA;
+}
+/* increase the font size of the h1 element */
+.header h1 {
+	font-size: 40px;
 }
 </style>
 </head>
+
 <body>
+<div class="navbar">
+	<a href="#">Link</a>
+	<a href="#">Link</a>
+	<a href="#">Link</a>
+	<a href="#">Link</a>
+	<a href="#" class="right">Link</a>
+</div>
+<div class="header">
 	<h1>quantum magic</h1>
 	<p>I'm hosting using GitHub Pages 333 to practice coding </p>
+</div>
 </body>
 </html>

@@ -2,24 +2,28 @@
 <html lang="en">
 <meta charset="UTF-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet" href="https://www.w3schools"> -->
 
 <head>
 	<title>in heaven</title>
-	<link rel="shortcut icon" href="http://static.tumblr.com/9pf7gkp/I5Jmgkp23/radiohead1.png">
+	<link rel="icon" type="image/png" href="favii.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="faviii.png" sizes="32x32">
 	
-	<!--import custom fonts: {amandine}-->
+	
+	<!--import custom fonts: {amandine, panel sans mono, seismic latin variable}-->
 	<link rel="stylesheet" href="https://use.typekit.net/imo6rfg.css">
 
 
 <style>
 body {
-	font-family: amandine, sans-serif;
-	font-style: normal;
-	font-weight: 300;
-	
-	/*font-family: 'Trebuchet MS', sans-serif;*/
+	font-family: "seismic-latin-variable", sans-serif;
+	font-variation-settings: "SEIS" 88, "wght" 518;
+	font-size: 90px;
 	margin: 22px;
+}
+
+img {
+	width: 77%;
+	height: auto;
 }
 /* style the top navigation bar */
 .navbar {
@@ -57,15 +61,58 @@ body {
 }
 /* increase the font size of the h1 element */
 .header h1 {
-	font-size: 40px;
+	font-size:120px;
 }
 .header p{
+	font-size:70px;
 	color:#fbfbfe;
+}
+/* shapes */
+.triangle-up {
+	background: linear-gradient(225deg,
+		rgb(35, 116, 171) 50%,
+		rgb(77, 204, 189) 50%
+		);
+}
+.triangle-down {
+	background: linear-gradient(315deg,
+		rgb(35, 116, 171) 50%,
+		rgb(77, 204, 189) 50%
+		);
+}
+.circle {
+	background: radial-gradient(circle, rgb(77, 204, 189) 35%,
+	rgb(35, 116, 171) 35%);
+}
+.circle-up {
+	background: radial-gradient(circle, rgb(77, 204, 189) 35%,
+	rgb(35, 116, 171) 35%);
+	background-size: 200% 200%;
+	background-position: bottom;
+}
+.circle-right {
+	background: radial-gradient(circle, rgb(77, 204, 189) 35%,
+	rgb(35, 116, 171) 35%);
+	background-size: 200% 200%;
+	background-position: left;
+}
+.circle-left {
+	background: radial-gradient(circle, rgb(77, 204, 189) 35%,
+	rgb(35, 116, 171) 35%);
+	background-size: 200% 200%;
+	background-position: right;
+}
+.circle-down {
+	background: radial-gradient(circle, rgb(77, 204, 189) 35%,
+	rgb(35, 116, 171) 35%);
+	background-size: 200% 200%;
+	background-position: top;
 }
 </style>
 </head>
 
 <body>
+	text text hi text test hehe 
 <div class="navbar">
 	<a href="#">Link</a>
 	<a href="#">Link</a>
@@ -75,9 +122,77 @@ body {
 </div>
 <div class="header">
 	<h1>Quantum Magic</h1>
-	<p>I'm hosting using GitHub Pages 333 to practice coding </p>
-	<img src="" />
+	<p>I'm hosting using GitHub Pages 333 to practice coding </p> 
+	<img src="alone.png">
+	<img src="favi.png">
+		
+		<!--  code container	  -->
+	<figure>
+		<div id="tilesWall"></div>
+		<figcaption></figcaption>
+	</figure>
+	<button>Generate New Tiles</button>
 	
+	<script LANGUAGE="JavaScript">
+	function generateTiles() {
+		// reset the HTML
+		const tilesWall = document.getElementById("tilesWall");
+		tilesWall.innerHTML = "";
+		// variables
+		const colorPalettes = [
+			["#E8C547", "#30323D", "#4D5061", "#5C80BC", "#CDD1C4"],
+			["#D6FFF6", "#231651", "#4DCCBD", "#2374AB", "#FF8484"],
+			["#1C1D21", "#A288A6", "#BB9BB0", "#CCBCBC", "#F1E3E4"],
+			["#DE9151", "#F34213", "#2E2E3A", "#BC5D2E", "#BBB8B2"],
+			["#002A32", "#C4A29E", "#EBA6A9", "#FFC6AC", "#F40076"],
+			["#FCFCFC", "#F7567C", "#FFFAE3", "#99E1D9", "#5D576B"]
+		];
+		const styles = [
+			"circle-up",
+			"circle-right",
+			"circle-down",
+			"circle-left",
+			"circle",
+			"triangle-up",
+			"triangle-down"
+		];
+		const colors = colorPalettes[generateRandomNumber(0, colorPalettes.length - 1)];
+
+		// populate the HTML with classes/styles
+		for (r = 1; r <= 100; r++) {
+			const gridItem = document.createElement("div");
+			const selectedStyle = `${styles[generateRandomNumber(0, styles.length - 1)]}`;
+			gridItem.setAttribute("class", selectedStyle);
+			if (selectedStyle === "triangle-up") {
+				gridItem.style.background = `linear-gradient(225deg,  ${
+					colors[generateRandomNumber(0, colors.length - 1)]
+				} 50%, ${colors[generateRandomNumber(0, colors.length - 1)]} 50%)`;
+			} else if (selectedStyle === "triangle-down") {
+				gridItem.style.background = `linear-gradient(315deg, ${
+					colors[generateRandomNumber(0, colors.length - 1)]
+				} 50%, ${colors[generateRandomNumber(0, colors.length - 1)]} 50%)`;
+			} else {
+				gridItem.style.background = `radial-gradient(circle, ${
+					colors[generateRandomNumber(0, colors.length - 1)]
+				} 35%, ${colors[generateRandomNumber(0, colors.length - 1)]} 35%)`;
+			}
+			tilesWall.appendChild(gridItem);
+		}
+	}
+	document.onload = generateTiles();
+	document.getElementsByTagName("button")[0].onclick = function () {
+		generateTiles();
+	};
+	document.getElementById("tilesWall").onclick = function () {
+		generateTiles();
+	};
+	// HELPER FUNCTIONS utils.js
+	// generate random number between min and max
+	function generateRandomNumber(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	//view raw gistfile1.txt hosted with ❤ by GitHub
+	</script>
 	
 </div>
 

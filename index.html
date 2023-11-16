@@ -11,6 +11,7 @@
 	
 	<!--import custom fonts: {amandine, panel sans mono, seismic latin variable}-->
 	<link rel="stylesheet" href="https://use.typekit.net/imo6rfg.css">
+	<link rel="stylesheet" href="https://use.typekit.net/bec8tkm.css">
 
 
 <style>
@@ -19,22 +20,21 @@
 	to {background-color:#63326e;}
 }
 @keyframes text_color {
-	0% {color:#ffe2fe;}
-	50% {color:#b980c6;}
-	100% {color:#71a2b6;}
+	0% {color:#ffe2fe; font-variation-settings: "SEIS" 150, "wght" 200;}
+	25% {color:#b980c6; font-variation-settings: "SEIS" 200, "wght" 518;}
+	75% {color:#71a2b6; font-variation-settings: "SEIS" 87, "wght" 800;}
+	100% {color:#b980c6; font-variation-settings: "SEIS" 500, "wght" 518;}
 }
+
 body {
 	font-family: "seismic-latin-variable", sans-serif;
 	font-variation-settings: "SEIS" 88, "wght" 518;
 	font-size: 90px;
 	margin: 22px;
-	/*animation-name:gradient_bg;
-	animation-duration: 5s;
-	animation-iteration-count: 5;*/
 	animation-name:text_color;
 	animation-duration: 5s;
+	animation-direction:alternate-reverse; 
 	animation-iteration-count: infinite;
-	animation-direction:alternate;
 }
 
 img {
@@ -88,7 +88,19 @@ img {
 .header h1 {
 	font-size:120px;
 }
+
+@keyframes font_variation {
+	0% {font-variation-settings: "BUBL" 0;}
+	50% {font-variation-settings: "BUBL" 75;}
+	100% {font-variation-settings: "BUBL" 100;}
+}
+
 .header p{
+	animation-name:font_variation;
+	animation-direction:alternate;
+	animation-duration:1s;
+	animation-iteration-count:infinite;
+	font-family: "bd-caramel-variable", sans-serif;
 	font-size:70px;
 	color:#fbfbfe;
 }
